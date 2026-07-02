@@ -15,6 +15,13 @@ MNCore.Config.StatusInterval = 10
 MNCore.Config.MetricsInterval = 30
 MNCore.Config.CommandPollInterval = 5
 MNCore.Config.ConsoleFlushInterval = 10
+MNCore.Config.BuildScanInterval = 120
+
+-- Build scanner
+MNCore.Config.EnableBuildScanner = true
+MNCore.Config.MinBuildProps = 5
+MNCore.Config.MaxBuildsPerScan = 25
+MNCore.Config.SendBuildsToWeb = true
 
 -- Command safety
 MNCore.Config.AllowConsoleCommands = true
