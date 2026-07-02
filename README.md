@@ -2,9 +2,9 @@
 
 Garry's Mod server addon for MemoNetwork Web.
 
-## Alpha 1
+## Alpha 2
 
-This first release connects a Garry's Mod server to MemoNetwork Web.
+Alpha 2 adds an automatic build scanner on top of Alpha 1.
 
 ### Features
 
@@ -15,16 +15,15 @@ This first release connects a Garry's Mod server to MemoNetwork Web.
 - Executes basic queued commands
 - Sends command results back to the web panel
 - Basic console logging to the web panel
+- Automatic build scanner
+- Groups builds by owner when CPPI ownership is available
+- Sends build data to MemoNetwork Web Build Browser
+- Calculates a basic performance score
 
 ## Installation
 
 1. Download this repository as ZIP.
-2. Extract it into your Garry's Mod server:
-
-```text
-garrysmod/addons/memonetwork_core/
-```
-
+2. Copy the new files into your existing MemoNetwork-Core addon.
 3. Edit:
 
 ```text
@@ -38,7 +37,14 @@ MNCore.Config.PanelUrl = "https://memocraft.nl/adminpanel"
 MNCore.Config.ApiToken = "YOUR_API_TOKEN_FROM_ENV"
 ```
 
-5. Restart the Garry's Mod server.
+5. Make sure the loader includes:
+
+```lua
+include("memonetwork/sv_buildscanner.lua")
+MNCore.BuildScanner.Start()
+```
+
+6. Restart the Garry's Mod server.
 
 ## Web panel endpoints used
 
@@ -47,7 +53,8 @@ MNCore.Config.ApiToken = "YOUR_API_TOKEN_FROM_ENV"
 - `api/console.php`
 - `api/player-event.php`
 - `api/commands.php`
+- `api/builds.php`
 
 ## Notes
 
-This addon only runs server-side. No client download is required for Alpha 1.
+This addon only runs server-side. No client download is required.
